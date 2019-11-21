@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { handleAddQuestion } from '../actions/questions'
 
 class AddQuestion extends Component {
     state = {
@@ -18,7 +19,9 @@ class AddQuestion extends Component {
         e.preventDefault()
 
         const { optionOne, optionTwo } = this.state
+        const { dispatch } = this.props
 
+        dispatch(handleAddQuestion(optionOne,optionTwo))
 
     }
 
@@ -39,7 +42,6 @@ class AddQuestion extends Component {
                         onChange={(e) => this.handleChange(e, 'optionTwo')} />
                     <button 
                         type="submit" 
-                        onClick
                         disabled={optionOne === '' || optionTwo === ''}>
                         Save
                     </button>
