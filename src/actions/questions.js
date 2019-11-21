@@ -23,13 +23,14 @@ export function addQuestion(question) {
 export function handleAddQuestion(optionOne,optionTwo) {
     return (dispatch, getState) => {
         const { authedUser } = getState()
+        dispatch(showLoading())
 
         return saveQuestion({
             optionOneText: optionOne, 
             optionTwoText: optionTwo, 
             author: authedUser})
             .then((question) => dispatch(addQuestion(question)))
-            .catch((e) => console.log(e))
+            .then(() => dispatch(hideLoading()))
     }
 }
 

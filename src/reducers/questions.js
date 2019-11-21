@@ -20,7 +20,6 @@ export function questions(state = {}, action) {
                 }
             }
         case ADD_QUESTION :
-            console.log(action)
             return {
                 ...state,
                 [action.question.id]: action.question,
