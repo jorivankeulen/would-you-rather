@@ -14,7 +14,6 @@ class User extends Component {
 }
 
 function mapStateToProps({users}, {id}) {
-    console.log(id)
     const user = users[id]
     return {
         user

@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 import Questions from './Questions'
-import Question from './Question'
 import QuestionDetails from './QuestionDetails'
 import AddQuestion from './AddQuestion'
 import Nav from './Nav'
@@ -16,21 +15,19 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
   render() {
-    // const id = '8xf0y6ziyjabvozdd253nd'
     return (
       <Router>
         <Fragment>
           <LoadingBar />
           <div className="container">
-            {this.props.loading === true
+            {this.props.loggedOut === true
               ? <Login />
               : <div>
                   <Nav />
                   <Route path='/' exact component={Questions} />
                   <Route path='/question/:id' component={QuestionDetails} />
-                  <Route path='/new' component={AddQuestion} />
+                  <Route path='/add' component={AddQuestion} />
                   <Route path='/leaderboard' component={Leaderboard} />
-                  {/* leaderboard */}
                 </div>
               }
           </div>
@@ -43,7 +40,7 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    loading: authedUser === null
+    loggedOut: authedUser === null
   }
 }
 

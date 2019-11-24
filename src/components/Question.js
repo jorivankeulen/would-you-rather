@@ -24,7 +24,7 @@ class Question extends Component {
             return <p>This question does not exist</p>
         }
 
-        const { author, optionOne, optionTwo } = question
+        const { optionOne, optionTwo } = question
         
         return (
             <Link to={`/question/${question.id}`}>
