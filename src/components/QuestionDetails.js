@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/questions'
-import { Link } from 'react-router-dom'
 
 class Question extends Component {
     
     handleAnswer = (e, answer) => {
         e.preventDefault()
-
-        const { dispatch, id, authedUser } = this.props
+        
+        const { id } = this.props.match.params
+        const { dispatch, authedUser } = this.props
         
         dispatch(handleAnswerQuestion({
             authedUser,
@@ -27,17 +27,19 @@ class Question extends Component {
         const { author, optionOne, optionTwo } = question
         
         return (
-            <Link to={`/question/${question.id}`}>
-                <h3>Most people would rather..</h3>
-                <p>{optionOne.text},<br/> 
-                than {optionTwo.text}.</p>
-            </Link>
+            <div>
+                <h3>{author} was wondering, would you rather:</h3>
+                <button onClick={(e) => this.handleAnswer(e, "optionOne")}>{optionOne.text}?</button>
+                <p>or..</p>
+                <button onClick={(e) => this.handleAnswer(e, "optionTwo")}>{optionTwo.text}?</button>
+
+            </div>
         )
     }
 }
 
-function mapStateToProps({authedUser, users, questions}, {id}) {
-
+function mapStateToProps({authedUser, users, questions}, props) {
+    const { id } = props.match.params
     const question = questions[id]
 
     return {

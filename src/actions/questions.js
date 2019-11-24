@@ -43,10 +43,11 @@ export function answerQuestion ({authedUser, qid, answer}) {
     }
 }
 
+
 export function handleAnswerQuestion(info) {
     return (dispatch) => {
         dispatch(showLoading())
-
+        console.log(info)
         return saveQuestionAnswer(info)
             .then(() => dispatch(answerQuestion(info)))
             .then(() => dispatch(hideLoading()))

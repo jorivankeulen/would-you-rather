@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
+import { Redirect } from 'react-router-dom'
 
 class AddQuestion extends Component {
     state = {
         optionOne: '',
-        optionTwo:''
+        optionTwo:'',
+        toHome: false,
     }
 
     handleChange = (e, answer) => {
@@ -26,12 +28,18 @@ class AddQuestion extends Component {
         this.setState(() => ({
             optionOne: '',
             optionTwo:'',
+            toHome: true,
         }))
 
     }
 
     render() {
-        const { optionOne, optionTwo } = this.state
+        const { optionOne, optionTwo, toHome } = this.state
+
+        if (toHome === true) {
+            return <Redirect to='/' />
+        }
+
         return (
             <div>
                 <h3>Would they rather...?</h3>
