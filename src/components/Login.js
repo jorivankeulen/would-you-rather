@@ -6,14 +6,10 @@ class Login extends Component {
     login = (user) => {
         const {dispatch} = this.props
         dispatch(setAuthedUser(user))
-        console.log(user)
-
     }
 
     render() {
         const { users } = this.props
-        console.log(this.props)
-        console.log(users)
         return (
             <div>
                 {Object.keys(users).map((user) => (
