@@ -41,18 +41,20 @@ class AddQuestion extends Component {
         }
 
         return (
-            <div>
+            <div className="add-question">
                 <h3>Would they rather...?</h3>
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type="text" 
                         value={optionOne} 
+                        placeholder="rather.."
                         onChange={(e) => this.handleChange(e, 'optionOne')} />
                     <p>or..</p>
                     <input 
                         type="text" 
                         value={optionTwo} 
-                        onChange={(e) => this.handleChange(e, 'optionTwo')} />
+                        placeholder="rather.."
+                        onChange={(e) => this.handleChange(e, 'optionTwo')} /><br/>
                     <button 
                         type="submit" 
                         disabled={optionOne === '' || optionTwo === ''}>
