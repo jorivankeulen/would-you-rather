@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/questions'
+import { Redirect } from 'react-router-dom'
 
 Object.filter = (obj, predicate) => 
     Object.keys(obj)
@@ -26,7 +27,7 @@ class Question extends Component {
         const { id, authedUser, question, users } = this.props
 
         if (question == null ) {
-            return <p>This question does not exist</p>
+            return <Redirect to='/404' />
         }
 
         const { author, optionOne, optionTwo } = question

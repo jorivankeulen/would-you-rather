@@ -48,13 +48,13 @@ class Questions extends Component {
                 {filter === "unanswered" && unansweredQuestions.length !== 0 && 
                     <h3>Are you ready to answer some new questions?</h3>}
                 {filter === "unanswered" && unansweredQuestions.map((id) => (
-                    <Question id={id} />
+                    <Question key={id} id={id} />
                 ))}
             
                 {filter === "answered" && answeredQuestions.length !== 0 && 
                     <h3>Here are the questions you've already answered:</h3>}
                 {filter === "answered" && answeredQuestions.map((id) => (
-                    <Question id={id} />
+                    <Question key={id} id={id} />
                 ))}
             </div>
         )

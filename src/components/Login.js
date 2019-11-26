@@ -14,7 +14,7 @@ class Login extends Component {
             <div className="login">
                 <h2>login plx</h2>
                 {Object.keys(users).map((user) => (
-                    <button onClick={() => this.login(user)}>{user} >></button>
+                    <button key={user} onClick={() => this.login(user)}>{user} >></button>
                 ))}
             </div>
         )

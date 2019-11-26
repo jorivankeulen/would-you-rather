@@ -36,8 +36,6 @@ class AddQuestion extends Component {
     render() {
         const { optionOne, optionTwo, toHome } = this.state
 
-        console.log(this.props)
-
         if (toHome === true) {
             return <Redirect to='/' />
         }

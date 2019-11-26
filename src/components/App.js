@@ -27,10 +27,12 @@ class App extends Component {
                   <Nav />
                   <div className="main">
                     <Switch>
+
                       <Route path='/' exact component={Questions} />
                       <Route path='/question/:id' component={QuestionDetails} />
                       <Route path='/add' component={AddQuestion} />
                       <Route path='/leaderboard' component={Leaderboard} />
+                      <Route path='/404' component={FourOhFour} />
                       <Route component={FourOhFour} />
 
                     </Switch>

@@ -19,11 +19,6 @@ class Question extends Component {
 
     render() {
         const { question } = this.props
-
-        if (question == null ) {
-            return <p>This question does not exist</p>
-        }
-
         const { optionOne, optionTwo } = question
         
         return (

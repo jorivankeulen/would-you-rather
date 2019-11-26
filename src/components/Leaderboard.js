@@ -10,7 +10,7 @@ class Leaderboard extends Component {
                 <h2>the wall of heroes</h2>
                 <ul>
                     {users && users.map((id) => (
-                        <User id={id} />             
+                        <User key={id} id={id} />             
                     ))}
                 </ul>
 

@@ -21,7 +21,6 @@ export function users(state = {}, action) {
                 }
             }
         case ADD_QUESTION :
-            console.log(state[action.question.author])
             return {
                 ...state,
                 [action.question.author]: {
