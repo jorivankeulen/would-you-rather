@@ -1,4 +1,4 @@
-# MyReads Project
+# Would you rather
 
 Welcome! 
 
