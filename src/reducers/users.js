@@ -21,16 +21,14 @@ export function users(state = {}, action) {
                 }
             }
         case ADD_QUESTION :
-            console.log(action)
-            console.log(state)
-
+            console.log(state[action.question.author])
             return {
                 ...state,
                 [action.question.author]: {
                     ...state[action.question.author],
-                    questions: {
+                    questions: [
                         ...state[action.question.author].questions.concat(action.question.id)
-                    }
+                    ]
                 }
             }
         default :

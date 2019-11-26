@@ -17,7 +17,6 @@ class Questions extends Component {
     render() {
         const { questionsIds, authedUser } = this.props
         const { filter } = this.state
-        console.log(filter)
 
         let answeredQuestions = []
         let unansweredQuestions = []

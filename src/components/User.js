@@ -7,8 +7,11 @@ class User extends Component {
         const nAnswers = Object.keys(user.answers).length
         const nQuestions = Object.keys(user.questions).length
         return (
-            <li key={user.id}>
-                <img src={user.avatarURL} alt="" />
+            <li key={user.id} className="leaderboard__user">
+                <div className="avatar">
+                    <img src={user.avatarURL} alt="" />
+                    <span className="score">{nAnswers+nQuestions}</span>
+                </div>
                 {`${user.id} has answered ${nAnswers} questions and asked ${nQuestions} questions.`}
             </li>
         )    

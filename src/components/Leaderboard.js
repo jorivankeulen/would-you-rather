@@ -4,10 +4,10 @@ import User from './User'
 
 class Leaderboard extends Component {
     render() {
-        console.log(this.props)
         const { users } = this.props
         return (
-            <div>
+            <div className="leaderboard">
+                <h2>the wall of heroes</h2>
                 <ul>
                     {users && users.map((id) => (
                         <User id={id} />             
