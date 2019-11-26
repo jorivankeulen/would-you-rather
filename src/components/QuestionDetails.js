@@ -33,11 +33,16 @@ class Question extends Component {
         
         const votersOptionTwo = Object.filter(users, u => u.answers[id] === 'optionTwo')
         const votersOptionOne = Object.filter(users, u => u.answers[id] === 'optionOne')
-        
+
         return (
             <div className="question-details">
-                <h3>{author} was wondering, would you rather:</h3>
+                <div className="question-details__author">
+                    <img src={users[author].avatarURL} alt="" />
+                    <h3>{author} was wondering, would you rather:</h3>
+                </div>
+                
                 <div className="wrapper">
+
                     <div className="question-details__vote-box">
                         <h4>{optionOne.text}?</h4>
                         <h4 className="score">
@@ -45,9 +50,7 @@ class Question extends Component {
                         </h4>
                         <button 
                             onClick={(e) => this.handleAnswer(e, "optionOne")}
-                            className={Object.keys(authedUser.answers).includes(id) ? 'voted' : ''}
-                            // disabled={Object.keys(authedUser.answers).includes(id)}
-                            >
+                            className={Object.keys(authedUser.answers).includes(id) ? 'voted' : ''}>
                             {!Object.keys(authedUser.answers).includes(id)
                                 ? `Vote`
                                 : Object.keys(votersOptionOne).includes(authedUser.id) 
@@ -60,9 +63,11 @@ class Question extends Component {
                             {Object.keys(votersOptionOne).map(v => <li>{v}</li>)}
                         </ul>
                     </div>
+
                     <div className="question-details__vote-box__spacer">
                         <h5>..or..</h5>
                     </div>
+
                     <div className="question-details__vote-box">
                         <h4>{optionTwo.text}?</h4>
                         <h4 className="score">
@@ -70,9 +75,7 @@ class Question extends Component {
                         </h4>
                         <button 
                             onClick={(e) => this.handleAnswer(e, "optionTwo")}
-                            className={Object.keys(authedUser.answers).includes(id) ? 'voted' : ''}
-                            // disabled={Object.keys(authedUser.answers).includes(id)}
-                            >
+                            className={Object.keys(authedUser.answers).includes(id) ? 'voted' : ''}>
                             {!Object.keys(authedUser.answers).includes(id)
                                 ? `Vote`
                                 : Object.keys(votersOptionTwo).includes(authedUser.id) 
@@ -85,6 +88,7 @@ class Question extends Component {
                             {Object.keys(votersOptionTwo).map(v => <li>{v}</li>)}
                         </ul>
                     </div>
+                    
                 </div>
             </div>
         )
