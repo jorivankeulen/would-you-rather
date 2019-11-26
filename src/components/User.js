@@ -7,7 +7,7 @@ class User extends Component {
         const nAnswers = Object.keys(user.answers).length
         const nQuestions = Object.keys(user.questions).length
         return (
-            <li>
+            <li key={user.id}>
                 <img src={user.avatarURL} alt="" />
                 {`${user.id} has answered ${nAnswers} questions and asked ${nQuestions} questions.`}
             </li>

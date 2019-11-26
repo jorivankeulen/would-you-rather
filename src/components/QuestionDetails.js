@@ -65,7 +65,7 @@ class Question extends Component {
                         </button>
                         <h4>Voted for by:</h4>
                         <ul className="question-details__vote-box__voters">
-                            {Object.keys(votersOptionOne).map(v => <li>{v}</li>)}
+                            {Object.keys(votersOptionOne).map(v => <li key={v}>{v}</li>)}
                         </ul>
                     </div>
 
@@ -91,7 +91,7 @@ class Question extends Component {
                         </button>
                         <h4>Voted for by:</h4>
                         <ul className="question-details__vote-box__voters">
-                            {Object.keys(votersOptionTwo).map(v => <li>{v}</li>)}
+                            {Object.keys(votersOptionTwo).map(v => <li key={v}>{v}</li>)}
                         </ul>
                     </div>
                     

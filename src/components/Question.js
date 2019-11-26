@@ -28,9 +28,9 @@ class Question extends Component {
         
         return (
             <Link to={`/question/${question.id}`}>
-                <h3>Most people would rather..</h3>
+                <h3>Would you rather..</h3>
                 <p>{optionOne.text},<br/> 
-                than {optionTwo.text}.</p>
+                or {optionTwo.text}?</p>
             </Link>
         )
     }
