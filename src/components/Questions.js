@@ -3,9 +3,21 @@ import { connect } from 'react-redux'
 import Question from './Question'
 
 class Questions extends Component {
+    
+    state = {
+        filter: "unanswered"
+    }
+
+    setFilter = (filter) => {
+        this.setState(() => ({
+            filter: filter
+        }))
+    }
+
     render() {
         const { questionsIds, authedUser } = this.props
-        // console.log(this.props)
+        const { filter } = this.state
+        console.log(filter)
 
         let answeredQuestions = []
         let unansweredQuestions = []
@@ -17,16 +29,32 @@ class Questions extends Component {
             q => !answeredQuestions.includes(q))
 
         return (
-            <div>
-                {unansweredQuestions.length !== 0 && 
+            <div className="questions">
+                <div className="filter">
+                    <span 
+                        className={filter === "answered"
+                            ? "filter__btn filter__btn--selected"
+                            : "filter__btn" }
+                        onClick={() => this.setFilter('answered')}>
+                        Show answered questions
+                    </span>
+                    <span 
+                        className={filter === "unanswered"
+                            ? "filter__btn filter__btn--selected"
+                            : "filter__btn" }
+                        onClick={() => this.setFilter('unanswered')}>
+                        Show unanswered questions
+                    </span>
+                </div>
+                {filter === "unanswered" && unansweredQuestions.length !== 0 && 
                     <h3><hr/>Are you ready to answer some new questions?</h3>}
-                {unansweredQuestions.map((id) => (
+                {filter === "unanswered" && unansweredQuestions.map((id) => (
                     <Question id={id} />
                 ))}
             
-                {answeredQuestions.length !== 0 && 
+                {filter === "answered" && answeredQuestions.length !== 0 && 
                     <h3><hr/>Here are the questions you've already answered:</h3>}
-                {answeredQuestions.map((id) => (
+                {filter === "answered" && answeredQuestions.map((id) => (
                     <Question id={id} />
                 ))}
             </div>

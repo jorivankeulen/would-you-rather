@@ -5,7 +5,7 @@ import { handleAnswerQuestion } from '../actions/questions'
 Object.filter = (obj, predicate) => 
     Object.keys(obj)
           .filter( key => predicate(obj[key]) )
-          .reduce( (res, key) => (res[key] = obj[key], res), {} );
+          .reduce( (res, key) => (res[key] = (obj[key], res)), {} );
 
 class Question extends Component {
     
@@ -33,6 +33,7 @@ class Question extends Component {
         
         const votersOptionTwo = Object.filter(users, u => u.answers[id] === 'optionTwo')
         const votersOptionOne = Object.filter(users, u => u.answers[id] === 'optionOne')
+        const totalVotes = Object.keys(votersOptionOne).length + Object.keys(votersOptionTwo).length
 
         return (
             <div className="question-details">
@@ -46,8 +47,9 @@ class Question extends Component {
                     <div className="question-details__vote-box">
                         <h4>{optionOne.text}?</h4>
                         <h4 className="score">
-                            {Object.keys(votersOptionOne).length} votes
+                            {Object.keys(votersOptionOne).length}
                         </h4>
+                        <h5>{`..out of ${totalVotes} votes (${Math.round((Object.keys(votersOptionOne).length / totalVotes)*100)}%)`}</h5>
                         <button 
                             onClick={(e) => this.handleAnswer(e, "optionOne")}
                             className={Object.keys(authedUser.answers).includes(id) ? 'voted' : ''}>
@@ -71,8 +73,9 @@ class Question extends Component {
                     <div className="question-details__vote-box">
                         <h4>{optionTwo.text}?</h4>
                         <h4 className="score">
-                            {Object.keys(votersOptionTwo).length} votes
+                            {Object.keys(votersOptionTwo).length} 
                         </h4>
+                        <h5>{`..out of ${totalVotes} votes (${Math.round((Object.keys(votersOptionTwo).length / totalVotes)*100)}%)`}</h5>
                         <button 
                             onClick={(e) => this.handleAnswer(e, "optionTwo")}
                             className={Object.keys(authedUser.answers).includes(id) ? 'voted' : ''}>
