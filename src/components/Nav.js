@@ -34,7 +34,7 @@ class Nav extends Component {
             </button>
           </li>
           <li>
-              {authedUser}
+              welcome back, {authedUser}!
           </li>
         </ul>
       </nav>

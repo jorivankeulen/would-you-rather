@@ -27,7 +27,9 @@ class Question extends Component {
         const { optionOne, optionTwo } = question
         
         return (
-            <Link to={`/question/${question.id}`}>
+            <Link 
+                to={`/question/${question.id}`}
+                className="question">
                 <h3>Would you rather..</h3>
                 <p>{optionOne.text},<br/> 
                 or {optionTwo.text}?</p>

@@ -1,13 +1,146 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+
+/* nav */
+
+.nav {
+    position: fixed;
+    width: 100vw;
+    height: 60px;
+    padding: 8px 16px;
+    margin: 0;
+    background: #3b4001;
+    top: 0;
+}
+
+.nav li {
+    display: inline;
+    min-width: 200px;
+    padding: 10px 20px;
+    color: #ccff8e;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.nav li a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #ccff8e;
+}
+
+.nav button {
+    display: inline-block;
+    padding: 0 32px;
+    border-radius: 0;
+    border: 1px solid #ccff8e;
+    background-color: transparent;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    cursor: pointer;
+}
+
+.nav button:hover {
+    background-color: #ccff8e;
+    color: #3b4001;
+}
+
+
+/* app */
+
+body {
+    background-color: #f4d6ff;
+}
+
+.main {
+    margin-top: 90px;
+}
+
+h3 {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    margin: 20px 30px;
+}
+
+
+/* login */
+
+.login {
+    display: block;
+    width: 400px;
+    margin: 20vh auto;
+    background-color: #45005e;
+    color: #fff;
+    padding: 20px 30px 40px;
+    text-align: center;
+}
+
+.login button {
+    margin: 20px auto;
+    padding: 10px 30px;
+    font-weight: bold;
+    background-color: #b0f;
+    color: #ffef00;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    display: block;
+}
+
+.login button:hover {
+    color: #b0f;
+    background-color: #ffef00;
+}
+
+
+/* home */
+
+.question {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px 30px;
+    text-align: center;
+    border: 2px solid #3b4001;
+    background-color: #ccff8e;
+    color: #3b4001;
+    text-decoration: none;
+    box-shadow: 0px 2px 8px rgb(240, 77, 77);
+}
+
+.question:hover {
+    box-shadow: 0px 2px 12px rgb(233, 44, 44);
+    border: 2px solid rgb(233, 44, 44);
+}
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.filter__btn {
+    margin: 20px 0;
+    padding: 10px 30px;
+    font-weight: bold;
+    background: #45005e;
+    color: #77755d;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.filter__btn--selected {
+    background: #b0f;
+    color: #ffef00;
+}
+
+.filter__btn:hover {
+    color: #fff;
 }

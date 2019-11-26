@@ -11,7 +11,8 @@ class Login extends Component {
     render() {
         const { users } = this.props
         return (
-            <div>
+            <div className="login">
+                <h2>login plx</h2>
                 {Object.keys(users).map((user) => (
                     <button onClick={() => this.login(user)}>{user}</button>
                 ))}

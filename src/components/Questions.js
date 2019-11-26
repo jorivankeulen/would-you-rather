@@ -32,28 +32,28 @@ class Questions extends Component {
             <div className="questions">
                 <div className="filter">
                     <span 
-                        className={filter === "answered"
-                            ? "filter__btn filter__btn--selected"
-                            : "filter__btn" }
-                        onClick={() => this.setFilter('answered')}>
-                        Show answered questions
-                    </span>
-                    <span 
                         className={filter === "unanswered"
                             ? "filter__btn filter__btn--selected"
                             : "filter__btn" }
                         onClick={() => this.setFilter('unanswered')}>
-                        Show unanswered questions
+                        Unanswered
+                    </span>
+                    <span 
+                        className={filter === "answered"
+                            ? "filter__btn filter__btn--selected"
+                            : "filter__btn" }
+                        onClick={() => this.setFilter('answered')}>
+                        Answered
                     </span>
                 </div>
                 {filter === "unanswered" && unansweredQuestions.length !== 0 && 
-                    <h3><hr/>Are you ready to answer some new questions?</h3>}
+                    <h3>Are you ready to answer some new questions?</h3>}
                 {filter === "unanswered" && unansweredQuestions.map((id) => (
                     <Question id={id} />
                 ))}
             
                 {filter === "answered" && answeredQuestions.length !== 0 && 
-                    <h3><hr/>Here are the questions you've already answered:</h3>}
+                    <h3>Here are the questions you've already answered:</h3>}
                 {filter === "answered" && answeredQuestions.map((id) => (
                     <Question id={id} />
                 ))}
