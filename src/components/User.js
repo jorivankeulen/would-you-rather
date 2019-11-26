@@ -5,10 +5,11 @@ class User extends Component {
     render() {
         const { user } = this.props
         const nAnswers = Object.keys(user.answers).length
+        const nQuestions = Object.keys(user.questions).length
         return (
             <li>
                 <img src={user.avatarURL} alt="" />
-                {`${user.id} has answered ${nAnswers} question.`}
+                {`${user.id} has answered ${nAnswers} questions and asked ${nQuestions} questions.`}
             </li>
         )    
     }

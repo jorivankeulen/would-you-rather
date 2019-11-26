@@ -35,6 +35,9 @@ class Question extends Component {
         const votersOptionOne = Object.filter(users, u => u.answers[id] === 'optionOne')
         const totalVotes = Object.keys(votersOptionOne).length + Object.keys(votersOptionTwo).length
 
+        const precentageOptionOne = totalVotes > 0 ? Math.round((Object.keys(votersOptionOne).length / totalVotes)*100) : 0;
+        const precentageOptionTwo = totalVotes > 0 ? Math.round((Object.keys(votersOptionTwo).length / totalVotes)*100) : 0;
+        
         return (
             <div className="question-details">
                 <div className="question-details__author">
@@ -49,7 +52,7 @@ class Question extends Component {
                         <h4 className="score">
                             {Object.keys(votersOptionOne).length}
                         </h4>
-                        <h5>{`..out of ${totalVotes} votes (${Math.round((Object.keys(votersOptionOne).length / totalVotes)*100)}%)`}</h5>
+                        <h5>{`..out of ${totalVotes} votes (${precentageOptionOne}%)`}</h5>
                         <button 
                             onClick={(e) => this.handleAnswer(e, "optionOne")}
                             className={Object.keys(authedUser.answers).includes(id) ? 'voted' : ''}>
@@ -75,7 +78,7 @@ class Question extends Component {
                         <h4 className="score">
                             {Object.keys(votersOptionTwo).length} 
                         </h4>
-                        <h5>{`..out of ${totalVotes} votes (${Math.round((Object.keys(votersOptionTwo).length / totalVotes)*100)}%)`}</h5>
+                        <h5>{`..out of ${totalVotes} votes (${precentageOptionTwo}%)`}</h5>
                         <button 
                             onClick={(e) => this.handleAnswer(e, "optionTwo")}
                             className={Object.keys(authedUser.answers).includes(id) ? 'voted' : ''}>
