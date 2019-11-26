@@ -8,12 +8,12 @@ export function users(state = {}, action) {
                 ...state,
                 ...action.users
             }
-            case ANSWER_QUESTION :
-            const { authedUser, qid, answer } = action
-            
+        case ANSWER_QUESTION :
+            const { authedUser, qid, answer } = action    
             return {
                 ...state,
                 [authedUser]: {
+                    ...state[authedUser],
                     answers: {
                         ...state[authedUser].answers,
                         [qid]: answer
